@@ -104,7 +104,7 @@ class FeedForwardNeuralNetwork:
                 print("Validation Accuracy: {}%".format(
                     100 - np.mean(np.abs(validationPredictions - validationLabels)) * 100))
 
-            # computing derivative (backward prop)
+            # computing gradients for last layer (backward prop)
             dZ_L = np.subtract(self.activations["A" + str(self.noOfLayers)], trainLabels)
             dW_L = (1 / self.m) * np.dot(dZ_L, self.activations["A" + str(self.noOfLayers - 1)].T)
             db_L = (1 / self.m) * np.sum(dZ_L, axis=1, keepdims=True)
