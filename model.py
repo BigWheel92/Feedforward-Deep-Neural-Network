@@ -8,8 +8,8 @@ class FeedForwardNeuralNetwork:
         self.noOfUnitsInEachLayer={}
         self.activations={}
 
-    def predict(self, test_X):
-        A_prev=test_X
+    def predict(self, testSet):
+        A_prev=testSet
 
         # forward prop
         for i in range(1, self.noOfLayers + 1):
