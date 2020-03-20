@@ -22,6 +22,12 @@ class FeedForwardNeuralNetwork:
             elif self.activationFunctionOfEachLayer["g" + str(i)] == "tanh":
                 A_test = self.tanh(Z)
 
+            elif self.activationFunctionOfEachLayer["g" + str(i)] == "relu":
+                A_test = self.relu(Z)
+
+            elif self.activationFunctionOfEachLayer["g" + str(i)] == "leakyrelu":
+                A_test = self.leakyrelu(Z)
+
             else:
                 raise NameError(
                     "Invalid activation function name: " + self.activationFunctionOfEachLayer["g" + str(i)])
@@ -50,6 +56,25 @@ class FeedForwardNeuralNetwork:
     def tanh(self, Z):
         return np.tanh(Z)
 
+    def relu(self, Z):
+        return np.maximum(Z, 0)
+
+    def leakyrelu(self, Z):
+        return np.maximum(0.01*Z, Z)
+
+    def sigmoidDerivative(self, A):
+        return A*(1-A)
+
+
+    def tanhDerivative(self, A):
+        return (1 - np.square(A))
+
+    def reluDerivative(self, Z):
+        return np.where(Z<0, 0, 1)
+
+    def leakyreluDerivative(self, Z):
+        return np.where(Z<0, 0.01, 1)
+
 
     def train(self, trainSet, trainLabels, noOfIterations=10, learningRate=0.01, validationSet=None, validationLabels=None ):
 
@@ -64,9 +89,7 @@ class FeedForwardNeuralNetwork:
             self.weights["W"+str(i)]=W
             self.weights["B"+str(i)]=B
 
-
         for itrNo in range(noOfIterations):
-
             # forward prop
             for i in range(1, self.noOfLayers + 1):
                 Z = np.dot(self.weights["W" + str(i)], self.activations[("A" + str(i - 1))]) + self.weights["B" + str(i)]
@@ -78,6 +101,12 @@ class FeedForwardNeuralNetwork:
 
                 elif self.activationFunctionOfEachLayer["g" + str(i)] == "tanh":
                     A = self.tanh(Z)
+
+                elif self.activationFunctionOfEachLayer["g"+str(i)]=="relu":
+                    A=self.relu(Z)
+
+                elif self.activationFunctionOfEachLayer["g"+str(i)]=="leakyrelu":
+                    A=self.leakyrelu(Z)
 
                 else:
                     raise NameError(
@@ -120,10 +149,16 @@ class FeedForwardNeuralNetwork:
                 dZ = np.dot(self.weights["W" + str(i + 1)].T, dZ_next)
 
                 if self.activationFunctionOfEachLayer["g" + str(i)] == 'sigmoid':
-                    dZ = dZ * (self.activations["A" + str(i)] * (1 - self.activations["A" + str(i)]))
+                    dZ = dZ * self.sigmoidDerivative(self.activations["A" + str(i)])
 
                 elif self.activationFunctionOfEachLayer["g" + str(i)] == 'tanh':
-                    dZ = dZ * (1 - np.square(self.activations["A" + str(i)]))
+                    dZ = dZ * self.tanhDerivative(self.activations["A" + str(i)])
+
+                elif self.activationFunctionOfEachLayer["g"+str(i)]=='relu':
+                    dZ=dZ*self.reluDerivative(self.activations["Z"+str(i)])
+
+                elif self.activationFunctionOfEachLayer["g"+str(i)]=="leakyrelu":
+                    dZ=dZ*self.leakyreluDerivative(self.activations["Z"+str(i)])
 
                 dW = (1 / self.m) * np.dot(dZ, self.activations["A" + str(i - 1)].T)
 
@@ -133,4 +168,3 @@ class FeedForwardNeuralNetwork:
                 self.weights["W" + str(i)] = self.weights["W" + str(i)] - learningRate * dW
                 self.weights["B" + str(i)] = self.weights["B" + str(i)] - learningRate * dB
                 dZ_next = dZ
-
