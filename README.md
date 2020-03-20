@@ -1,6 +1,10 @@
 # Feed-Forward-Neural-Network
 a vectorized, python-based implementation of deep feed forward neural network for binary classification.
 
+Limitations:
+1. For now, Only tanh and sigmoid activation functions are supported in the hidden layers.
+2. Only sigmoid activation function is supported in the output layer (Binary Classification).
+
 The following functions are supported:
 
 train(self, trainSet, trainLabels, noOfIterations=10, learningRate=0.01, validationSet=None, validationLabels=None ) : the train function is passed as parameters training dataset (trainSet), training dataset labels (trainLabels), noOfiterations, learningRate, validationSet and validationLabels. This funtion then learns weights.
