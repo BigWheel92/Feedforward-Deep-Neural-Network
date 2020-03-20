@@ -63,7 +63,6 @@ class FeedforwardDeepNeuralNetwork:
     def sigmoidDerivative(self, A):
         return A*(1-A)
 
-
     def tanhDerivative(self, A):
         return (1 - np.square(A))
 
