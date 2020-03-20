@@ -45,7 +45,7 @@ test_set_x=test_set_x.T
 from  model import FeedForwardNeuralNetwork
 np.random.seed(100)
 
-nn= FeedForwardNeuralNetwork()
+nn= FeedforwardDeepNeuralNetwork()
 
 #adding feed forward layers
 nn.addFeedForwardLayer(activationFunction="leakyrelu", noOfUnits=5) #1st layer
