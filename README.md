@@ -22,4 +22,4 @@ predict(self, testSet) : predict function is passed as parameter the test datase
 
 2. The shape of arrays containing labels for training set, test set and validation set must be (1, m) where m is the number of items.
 
-3. The model has been trained and tested in main.py on a dataset containg cat images (dataset has been taken from coursera deep learning course assignment). The model achieves test accuracy of 76%.
+3. The model has been trained and tested in main.py on a dataset containg cat images (dataset has been taken from coursera deep learning course assignment). The model achieves the test accuracy of 76%.
