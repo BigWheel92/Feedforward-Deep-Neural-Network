@@ -111,7 +111,7 @@ class FeedForwardNeuralNetwork:
                         "Invalid activation function name: " + self.activationFunctionOfEachLayer["g" + str(i)])
 
                 self.activations["A" + str(i)] = A
-            # end of forward prop
+                # end of forward prop
             
             #converting the activations of last layer into predictions by transforming the values into absolute 0 or 1. 
             predictions = np.array(self.activations["A" + str(self.noOfLayers)])
