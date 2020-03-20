@@ -3,7 +3,7 @@ a vectorized, python-based implementation of deep feed forward neural network fo
 
 -> Limitations:
 
-1. For now, Only tanh and sigmoid activation functions are supported in the hidden layers.
+1. For now, Only tanh, sigmoid, relu and leakyrelu activation functions are supported in the hidden layers.
 2. Only sigmoid activation function is supported in the output layer (Binary Classification).
 
 
@@ -22,4 +22,4 @@ predict(self, testSet): predict function is passed as parameter the test dataset
 
 2. The shape of arrays containing labels for training set, test set and validation set must be (1, m) where m is the number of items.
 
-3. The model has been trained and tested in main.py on a dataset containg cat images (dataset has been taken from coursera deep learning course assignment).
+3. The model has been trained and tested in main.py on a dataset containg cat images (dataset has been taken from coursera deep learning course assignment). The model achieves test accuracy of 74%.
