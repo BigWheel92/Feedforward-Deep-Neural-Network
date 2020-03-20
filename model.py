@@ -46,8 +46,6 @@ class FeedForwardNeuralNetwork:
         self.noOfLayers += 1
         self.noOfUnitsInEachLayer["L"+str(self.noOfLayers)]=noOfUnits
         self.activationFunctionOfEachLayer["g"+str(self.noOfLayers)]=activationFunction
-        #self.weights["W"+str(self.noOfLayers)]=W
-        #self.weights["B"+str(self.noOfLayers)]=b
 
 
     def sigmoid(self, Z):
@@ -114,7 +112,8 @@ class FeedForwardNeuralNetwork:
 
                 self.activations["A" + str(i)] = A
             # end of forward prop
-
+            
+            #converting the activations of last layer into predictions by transforming the values into absolute 0 or 1. 
             predictions = np.array(self.activations["A" + str(self.noOfLayers)])
             for j in range(predictions.shape[1]):
                 predictions[0, j] = 1 if predictions[0, j] > 0.5 else 0
