@@ -31,10 +31,10 @@ class FeedForwardNeuralNetwork:
             else:
                 raise NameError(
                     "Invalid activation function name: " + self.activationFunctionOfEachLayer["g" + str(i)])
-
             A_prev = A_test
+            
         predictions = A_prev
-
+        # converting the activations of last layer into predictions by transforming the values into absolute 0 or 1.
         for i in range(predictions.shape[1]):
             predictions[0, i] = 1 if predictions[0, i] > 0.5 else 0
 
