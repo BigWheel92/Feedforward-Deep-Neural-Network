@@ -41,7 +41,7 @@ class FeedforwardDeepNeuralNetwork:
         return predictions
 
 
-    def addFeedForwardLayer(self,activationFunction='sigmoid', noOfUnits=10):
+    def addFeedForwardLayer(self, activationFunction='sigmoid', noOfUnits=10):
 
         self.noOfLayers += 1
         self.noOfUnitsInEachLayer["L"+str(self.noOfLayers)]=noOfUnits
