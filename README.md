@@ -9,11 +9,11 @@ a vectorized, python-based implementation of deep feed forward neural network fo
 
 -> The neural network class has the following three major methods:
 
-train(self, trainSet, trainLabels, noOfIterations=10, learningRate=0.01, validationSet=None, validationLabels=None ) : the train function is passed as parameters training dataset (trainSet), training dataset labels (trainLabels), noOfiterations, learningRate, validationSet and validationLabels. This funtion then learns weights.
+1. train(self, trainSet, trainLabels, noOfIterations=10, learningRate=0.01, validationSet=None, validationLabels=None ) : the train function is passed as parameters training dataset (trainSet), training dataset labels (trainLabels), noOfiterations, learningRate, validationSet and validationLabels. This funtion then learns weights.
 
-addFeedForwardLayer(self,activationFunction='sigmoid', noOfUnits=10) : this function is used to add a new layer in the model. All calls to this function must be made before the train function is called. The last layer must be a sigmoid layer with 1 unit. The activation functions supported for hidden layers are sigmoid and tanh.
+2. addFeedForwardLayer(self,activationFunction='sigmoid', noOfUnits=10) : this function is used to add a new layer in the model. All calls to this function must be made before the train function is called. The last layer must be a sigmoid layer with 1 unit. The activation functions supported for hidden layers are sigmoid and tanh.
 
-predict(self, testSet) : predict function is passed as parameter the test dataset (testSet). It then predicts the labels of each item in the test dataset and returns the labels in an array.
+3. predict(self, testSet) : predict function is passed as parameter the test dataset (testSet). It then predicts the labels of each item in the test dataset and returns the labels in an array.
 
 
 -> Note:
