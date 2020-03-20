@@ -1,5 +1,5 @@
-# Feed-Forward-Neural-Network
-a vectorized, python-based implementation of deep feed forward neural network for binary classification.
+# Feedforward-Deep-Neural-Network
+a vectorized, python-based implementation of feedforward deep neural network for binary classification.
 
 -> Limitations:
 
