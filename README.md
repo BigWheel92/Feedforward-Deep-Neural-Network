@@ -11,7 +11,7 @@ a vectorized, python-based implementation of feedforward deep neural network for
 
 1. train(self, trainSet, trainLabels, noOfIterations=10, learningRate=0.01, validationSet=None, validationLabels=None ) : the train function is passed as parameters training dataset (trainSet), training dataset labels (trainLabels), noOfiterations, learningRate, validationSet and validationLabels. This funtion then learns weights.
 
-2. addFeedForwardLayer(self,activationFunction='sigmoid', noOfUnits=10) : this function is used to add a new layer in the model. All calls to this function must be made before the train function is called. The last layer must be a sigmoid layer with 1 unit. The activation functions supported for hidden layers are sigmoid, tanh, relu and leakyrelu.
+2. addFeedForwardLayer(self,activationFunction='sigmoid', noOfUnits=10) : this function is used to add a hidden layer or the output layer in the model. All calls to this function must be made before the train function is called. You can add as many hidden layers as you want. The last layer added using the last function call will be considered the output layer. The last (output) layer must be a sigmoid layer with 1 unit. The activation functions supported for hidden layers are sigmoid, tanh, relu and leakyrelu.
 
 3. predict(self, testSet) : predict function is passed as parameter the test dataset (testSet). It then predicts the labels of each item in the test dataset and returns the labels in an array.
 
