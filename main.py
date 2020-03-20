@@ -48,7 +48,7 @@ np.random.seed(100)
 nn= FeedForwardNeuralNetwork()
 
 #adding feed forward layers
-nn.addFeedForwardLayer(activationFunction="tanh", noOfUnits=5) #1st layer
+nn.addFeedForwardLayer(activationFunction="leakyrelu", noOfUnits=5) #1st layer
 
 nn.addFeedForwardLayer(activationFunction="sigmoid",noOfUnits=1) #last layer (the last layer must be sigmoid layer with a single unit)
 
