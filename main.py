@@ -52,7 +52,7 @@ nn.addFeedForwardLayer(activationFunction="leakyrelu", noOfUnits=5) #1st layer
 
 nn.addFeedForwardLayer(activationFunction="sigmoid",noOfUnits=1) #last layer (the last layer must be sigmoid layer with a single unit)
 
-nn.train(train_set_x, train_set_y, noOfIterations=2000, learningRate=0.005)
+nn.train(train_set_x, train_set_y, noOfIterations=1600, learningRate=0.005)
 predictions=nn.predict(test_set_x)
 
 #print test accuracy
