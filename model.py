@@ -1,6 +1,6 @@
 import numpy as np
 
-class FeedForwardNeuralNetwork:
+class FeedforwardDeepNeuralNetwork:
     def __init__(self):
         self.noOfLayers=0
         self.weights={}
