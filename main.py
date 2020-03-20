@@ -42,7 +42,7 @@ train_set_x=train_set_x.T
 test_set_x=test_set_x.T
 
 
-from  model import FeedForwardNeuralNetwork
+from  model import FeedforwardDeepNeuralNetwork
 np.random.seed(100)
 
 nn= FeedforwardDeepNeuralNetwork()
