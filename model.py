@@ -29,8 +29,7 @@ class FeedforwardDeepNeuralNetwork:
                 A_test = self.leakyrelu(Z)
 
             else:
-                raise NameError(
-                    "Invalid activation function name: " + self.activationFunctionOfEachLayer["g" + str(i)])
+                raise NameError("Invalid activation function name: " + self.activationFunctionOfEachLayer["g" + str(i)])
             A_prev = A_test
             
         predictions = A_prev
@@ -106,8 +105,7 @@ class FeedforwardDeepNeuralNetwork:
                     A=self.leakyrelu(Z)
 
                 else:
-                    raise NameError(
-                        "Invalid activation function name: " + self.activationFunctionOfEachLayer["g" + str(i)])
+                    raise NameError("Invalid activation function name: " + self.activationFunctionOfEachLayer["g" + str(i)])
 
                 self.activations["A" + str(i)] = A
                 # end of forward prop
