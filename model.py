@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class FeedforwardDeepNeuralNetwork:
     def __init__(self):
         self.noOfLayers = 0
