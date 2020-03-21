@@ -41,7 +41,7 @@ class FeedforwardDeepNeuralNetwork:
 
         self.noOfLayers += 1
 
-        if noOfUnits<1:
+        if noOfUnits < 1:
             raise ValueError("The number of units must be greater than 0.")
 
         else:
