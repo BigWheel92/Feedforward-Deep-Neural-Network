@@ -40,10 +40,9 @@ class FeedforwardDeepNeuralNetwork:
     def addFeedForwardLayer(self, activationFunction='sigmoid', noOfUnits=10):
 
         self.noOfLayers += 1
-
+        
         if noOfUnits < 1:
             raise ValueError("The number of units must be greater than 0.")
-
         else:
             self.noOfUnitsInEachLayer["L" + str(self.noOfLayers)] = noOfUnits
 
