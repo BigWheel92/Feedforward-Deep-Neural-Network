@@ -75,8 +75,7 @@ class FeedforwardDeepNeuralNetwork:
     def leakyreluDerivative(self, Z):
         return np.where(Z < 0, 0.01, 1)
 
-    def train(self, trainSet, trainLabels, noOfIterations=10, learningRate=0.01, validationSet=None,
-              validationLabels=None):
+    def train(self, trainSet, trainLabels, noOfIterations=10, learningRate=0.01, validationSet=None, validationLabels=None):
 
         self.m = np.shape(trainSet)[1]
         self.activations["A0"] = trainSet
@@ -85,16 +84,14 @@ class FeedforwardDeepNeuralNetwork:
         # creating weight matrices and initalizing them with random values
         for i in range(1, self.noOfLayers + 1):
             B = np.zeros(shape=(self.noOfUnitsInEachLayer["L" + str(i)], 1))
-            W = np.random.randn(self.noOfUnitsInEachLayer["L" + str(i)],
-                                self.noOfUnitsInEachLayer["L" + str(i - 1)]) * 0.01
+            W = np.random.randn(self.noOfUnitsInEachLayer["L" + str(i)], self.noOfUnitsInEachLayer["L" + str(i - 1)]) * 0.01
             self.weights["W" + str(i)] = W
             self.weights["B" + str(i)] = B
 
         for itrNo in range(noOfIterations):
             # forward prop
             for i in range(1, self.noOfLayers + 1):
-                Z = np.dot(self.weights["W" + str(i)], self.activations[("A" + str(i - 1))]) + self.weights[
-                    "B" + str(i)]
+                Z = np.dot(self.weights["W" + str(i)], self.activations[("A" + str(i - 1))]) + self.weights["B" + str(i)]
                 self.activations["Z" + str(i)] = Z
 
                 A = None
@@ -132,8 +129,7 @@ class FeedforwardDeepNeuralNetwork:
 
             else:
                 validationPredictions = self.predict(validationSet)
-                print("Validation Accuracy: {}%".format(
-                    100 - np.mean(np.abs(validationPredictions - validationLabels)) * 100))
+                print("Validation Accuracy: {}%".format(100 - np.mean(np.abs(validationPredictions - validationLabels)) * 100))
 
             # computing gradients for last layer (backward prop)
             dZ_L = np.subtract(self.activations["A" + str(self.noOfLayers)], trainLabels)
